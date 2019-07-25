@@ -10,9 +10,9 @@
             "request": "launch",
             "preLaunchTask": "build:console",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/samples/console/HashiCorp.Vault.DotNetCore.Configuration.Sample.ConsoleApp/bin/Debug/netcoreapp2.2/HashiCorp.Vault.DotNetCore.Configuration.Sample.ConsoleApp.dll",
+            "program": "${workspaceFolder}/samples/console/C.Sample.ConsoleApp/bin/Debug/netcoreapp2.2/Vault.Configuration.Sample.ConsoleApp.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/HashiCorp.Vault.DotNetCore.Configuration.Sample.ConsoleApp",
+            "cwd": "${workspaceFolder}/Vault.Configuration.Sample.ConsoleApp",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
             "console": "internalConsole",
             "stopAtEntry": false
@@ -23,9 +23,9 @@
             "request": "launch",
             "preLaunchTask": "build:web",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/samples/web/HashiCorp.Vault.DotNetCore.Configuration.Sample.WebApp/bin/Debug/netcoreapp2.2/HashiCorp.Vault.DotNetCore.Configuration.Sample.WebApp.dll",
+            "program": "${workspaceFolder}/samples/web/Vault.Configuration.Sample.WebApp/bin/Debug/netcoreapp2.2/Vault.Configuration.Sample.WebApp.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/HashiCorp.Vault.DotNetCore.Configuration.Sample.WebApp",
+            "cwd": "${workspaceFolder}/Vault.Configuration.Sample.WebApp",
             "stopAtEntry": false,
             "launchBrowser": {
                 "enabled": true
@@ -34,7 +34,7 @@
                 "ASPNETCORE_ENVIRONMENT": "Development"
             },
             "sourceFileMap": {
-                "/Views": "${workspaceFolder}/HashiCorp.Vault.DotNetCore.Configuration.Sample.WebApp/Views"
+                "/Views": "${workspaceFolder}/Vault.Configuration.Sample.WebApp/Views"
             }
         },
         {

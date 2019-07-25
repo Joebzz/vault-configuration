@@ -1,6 +1,6 @@
 using VaultSharp.V1.Commons;
 
-namespace HashiCorp.Vault.DotNetCore.Configuration.SecretManager
+namespace Vault.Configuration.SecretManager
 {
     /// <summary>
     /// Default instance of the <see cref="IVaultSecretManager"/> 

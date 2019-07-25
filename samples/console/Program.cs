@@ -2,7 +2,7 @@
 using System.IO;
 using Microsoft.Extensions.Configuration;
 
-namespace HashiCorp.Vault.DotNetCore.Configuration
+namespace Vault.Configuration
 {
     class Program
     {

@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/src/HashiCorp.Vault.DotNetCore.Configuration.csproj",
+                "${workspaceFolder}/src/Vault.Configuration/Vault.Configuration.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/samples/console/HashiCorp.Vault.DotNetCore.Configuration.Sample.ConsoleApp.csproj",
+                "${workspaceFolder}/samples/console/Vault.Configuration.Sample.ConsoleApp.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -31,7 +31,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/samples/web/HashiCorp.Vault.DotNetCore.Configuration.Sample.WebApp.csproj"
+                "${workspaceFolder}/samples/web/Vault.Configuration.Sample.WebApp.csproj"
             ],
             "problemMatcher": "$tsc"
         },
@@ -41,7 +41,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/samples/console/HashiCorp.Vault.DotNetCore.Configuration.Sample.Console.csproj",
+                "${workspaceFolder}/samples/console/Vault.Configuration.Sample.Console.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -55,7 +55,7 @@
                 "publish",
                 "--configuration",
                 "Release",
-                "${workspaceFolder}/samples/web/HashiCorp.Vault.DotNetCore.Configuration.Sample.WebApp.csproj"
+                "${workspaceFolder}/samples/web/Vault.Configuration.Sample.WebApp.csproj"
             ],
             "problemMatcher": "$msCompile"
         },
@@ -65,7 +65,7 @@
             "type": "process",
             "args": [
                 "test",
-                "${workspaceFolder}/test/HashiCorp.Vault.DotNetCore.Configuration.Tests.csproj"
+                "${workspaceFolder}src/Vault.Configuration.Tests/Vault.Configuration.Tests.csproj"
             ],
             "problemMatcher": "$tsc"
         }

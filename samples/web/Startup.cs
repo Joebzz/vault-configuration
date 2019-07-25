@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace HashiCorp.Vault.DotNetCore.Configuration.Sample.WebApp
+namespace Vault.Configuration.Sample.WebApp
 {
     public class Startup
     {

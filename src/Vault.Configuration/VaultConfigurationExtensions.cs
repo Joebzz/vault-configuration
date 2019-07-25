@@ -5,9 +5,9 @@ using VaultSharp;
 using VaultSharp.V1.AuthMethods;
 using VaultSharp.V1.AuthMethods.AppRole;
 
-using HashiCorp.Vault.DotNetCore.Configuration.SecretManager;
+using Vault.Configuration.SecretManager;
 
-namespace HashiCorp.Vault.DotNetCore.Configuration
+namespace Vault.Configuration
 {
     /// <summary>
     /// Extension methods for registering <see cref="VaultConfigurationProvider"/> with <see cref="IConfigurationBuilder"/>.

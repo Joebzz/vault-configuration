@@ -7,9 +7,9 @@ using VaultSharp;
 using VaultSharp.V1.Commons;
 using VaultSharp.Core;
 
-using HashiCorp.Vault.DotNetCore.Configuration.SecretManager;
+using Vault.Configuration.SecretManager;
 
-namespace HashiCorp.Vault.DotNetCore.Configuration
+namespace Vault.Configuration
 {
     public class VaultConfigurationProvider : ConfigurationProvider
     {

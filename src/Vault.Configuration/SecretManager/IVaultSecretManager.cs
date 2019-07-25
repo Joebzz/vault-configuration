@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 using VaultSharp.V1.Commons;
 
-namespace HashiCorp.Vault.DotNetCore.Configuration.SecretManager
+namespace Vault.Configuration.SecretManager
 {
     /// <summary>
     /// The <see cref="IVaultSecretManager"/> instance used to control secret loading.

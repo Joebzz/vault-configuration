@@ -3,9 +3,9 @@ using Microsoft.Extensions.Configuration;
 
 using VaultSharp;
 
-using HashiCorp.Vault.DotNetCore.Configuration.SecretManager;
+using Vault.Configuration.SecretManager;
 
-namespace HashiCorp.Vault.DotNetCore.Configuration
+namespace Vault.Configuration
 {
     /// <summary>
     /// Represents Hashicorp Vault secrets as an <see cref="IConfigurationSource"/>.

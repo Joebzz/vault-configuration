@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 
-namespace HashiCorp.Vault.DotNetCore.Configuration.Sample.WebApp
+namespace Vault.Configuration.Sample.WebApp
 {
     public class Program
     {

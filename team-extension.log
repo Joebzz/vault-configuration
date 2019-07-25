@@ -1,0 +1,98 @@
+2019-07-25T09:07:28.285Z - info:   [01732] *** FOLDER: c:\Users\jdawson\source\repos\vault-configuration ***
+2019-07-25T09:07:28.286Z - info:   [01732] AzureReposVSCode/1.149.2 (VSCode 1.36.1; Windows_NT 10.0.17134; Node 10.11.0)
+2019-07-25T09:07:28.286Z - debug:  [01732] Looking for an External Context at c:\Users\jdawson\source\repos\vault-configuration
+2019-07-25T09:07:28.286Z - debug:  [01732] No External Context at c:\Users\jdawson\source\repos\vault-configuration
+2019-07-25T09:07:28.292Z - debug:  [01732] Looking for TFVC repository at c:\Users\jdawson\source\repos\vault-configuration
+2019-07-25T09:07:28.292Z - debug:  [01732] TFVC Creating Tfvc object with localPath='undefined'
+2019-07-25T09:07:28.292Z - debug:  [01732] Using TFS proxy: 
+2019-07-25T09:07:28.292Z - debug:  [01732] TFVC Retrieved from settings; localPath='C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\TF.exe'
+2019-07-25T09:07:28.293Z - debug:  [01732] TFVC Repository created with repositoryRootFolder='c:\Users\jdawson\source\repos\vault-configuration'
+2019-07-25T09:07:28.293Z - debug:  [01732] TFVC Repository.CheckVersion
+2019-07-25T09:07:28.293Z - debug:  [01732] TFVC: tf add -noprompt -?
+2019-07-25T09:07:28.296Z - debug:  [01732] TFVC: spawned new process (duration: 2ms)
+2019-07-25T09:07:28.299Z - debug:  [01732] TFVC: spawned new process (duration: 2ms)
+2019-07-25T09:07:28.746Z - debug:  [01732] TFVC: add exit code: 0 (duration: 453ms)
+2019-07-25T09:07:28.746Z - debug:  [01732] TFVC Minimum required version: 14.102.0
+2019-07-25T09:07:28.746Z - debug:  [01732] TFVC (TF.exe, TF.cmd) version: 14.102.25619.0
+2019-07-25T09:07:28.747Z - debug:  [01732] TFVC Repository.FindWorkspace with localPath='c:\Users\jdawson\source\repos\vault-configuration'
+2019-07-25T09:07:28.747Z - debug:  [01732] TFVC: tf workfold -noprompt c:\Users\jdawson\source\repos\vault-configuration
+2019-07-25T09:07:28.750Z - debug:  [01732] TFVC: spawned new process (duration: 3ms)
+2019-07-25T09:07:29.159Z - debug:  [01732] TFVC: workfold exit code: 100 (duration: 412ms)
+2019-07-25T09:07:29.161Z - debug:  [01732] TFVC errors (via stderr): Unable to determine the workspace. You may be able to correct this by running 'tf workspaces /collection:TeamProjectCollectionUrl'.
+
+2019-07-25T09:07:29.161Z - error:  [01732] Execution of the TFVC command line failed unexpectedly.
+2019-07-25T09:08:48.770Z - debug:  [01732] Reinitializing due to onDidChangeConfiguration
+2019-07-25T09:08:48.771Z - debug:  [01732] Polling interval value (minutes): 5
+2019-07-25T09:08:48.772Z - debug:  [01732] Polling interval must be greater than 10 minutes.
+2019-07-25T09:08:48.774Z - info:   [01732] *** FOLDER: c:\Users\jdawson\source\repos\vault-configuration ***
+2019-07-25T09:08:48.774Z - info:   [01732] AzureReposVSCode/1.149.2 (VSCode 1.36.1; Windows_NT 10.0.17134; Node 10.11.0)
+2019-07-25T09:08:48.775Z - debug:  [01732] Looking for an External Context at c:\Users\jdawson\source\repos\vault-configuration
+2019-07-25T09:08:48.775Z - debug:  [01732] No External Context at c:\Users\jdawson\source\repos\vault-configuration
+2019-07-25T09:08:48.779Z - debug:  [01732] Looking for TFVC repository at c:\Users\jdawson\source\repos\vault-configuration
+2019-07-25T09:08:48.780Z - debug:  [01732] TFVC Creating Tfvc object with localPath='undefined'
+2019-07-25T09:08:48.780Z - debug:  [01732] Using TFS proxy: 
+2019-07-25T09:08:48.780Z - debug:  [01732] TFVC Retrieved from settings; localPath='C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\TF.exe'
+2019-07-25T09:08:48.781Z - debug:  [01732] TFVC Repository created with repositoryRootFolder='c:\Users\jdawson\source\repos\vault-configuration'
+2019-07-25T09:08:48.781Z - debug:  [01732] TFVC Repository.CheckVersion
+2019-07-25T09:08:48.781Z - debug:  [01732] TFVC: tf add -noprompt -?
+2019-07-25T09:08:48.785Z - debug:  [01732] TFVC: spawned new process (duration: 3ms)
+2019-07-25T09:08:48.830Z - debug:  [01732] TFVC: add exit code: 0 (duration: 48ms)
+2019-07-25T09:08:48.830Z - debug:  [01732] TFVC Minimum required version: 14.102.0
+2019-07-25T09:08:48.830Z - debug:  [01732] TFVC (TF.exe, TF.cmd) version: 14.102.25619.0
+2019-07-25T09:08:48.831Z - debug:  [01732] TFVC Repository.FindWorkspace with localPath='c:\Users\jdawson\source\repos\vault-configuration'
+2019-07-25T09:08:48.831Z - debug:  [01732] TFVC: tf workfold -noprompt c:\Users\jdawson\source\repos\vault-configuration
+2019-07-25T09:08:48.834Z - debug:  [01732] TFVC: spawned new process (duration: 3ms)
+2019-07-25T09:08:49.263Z - debug:  [01732] TFVC: workfold exit code: 100 (duration: 432ms)
+2019-07-25T09:08:49.265Z - debug:  [01732] TFVC errors (via stderr): Unable to determine the workspace. You may be able to correct this by running 'tf workspaces /collection:TeamProjectCollectionUrl'.
+
+2019-07-25T09:08:49.265Z - error:  [01732] Execution of the TFVC command line failed unexpectedly.
+2019-07-25T09:12:06.443Z - debug:  [01732] Reinitializing due to onDidChangeConfiguration
+2019-07-25T09:12:06.444Z - debug:  [01732] Polling interval value (minutes): 5
+2019-07-25T09:12:06.444Z - debug:  [01732] Polling interval must be greater than 10 minutes.
+2019-07-25T09:12:06.447Z - info:   [01732] *** FOLDER: c:\Users\jdawson\source\repos\vault-configuration ***
+2019-07-25T09:12:06.448Z - info:   [01732] AzureReposVSCode/1.149.2 (VSCode 1.36.1; Windows_NT 10.0.17134; Node 10.11.0)
+2019-07-25T09:12:06.448Z - debug:  [01732] Looking for an External Context at c:\Users\jdawson\source\repos\vault-configuration
+2019-07-25T09:12:06.448Z - debug:  [01732] No External Context at c:\Users\jdawson\source\repos\vault-configuration
+2019-07-25T09:12:06.454Z - debug:  [01732] Looking for TFVC repository at c:\Users\jdawson\source\repos\vault-configuration
+2019-07-25T09:12:06.454Z - debug:  [01732] TFVC Creating Tfvc object with localPath='undefined'
+2019-07-25T09:12:06.454Z - debug:  [01732] Using TFS proxy: 
+2019-07-25T09:12:06.454Z - debug:  [01732] TFVC Retrieved from settings; localPath='C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\TF.exe'
+2019-07-25T09:12:06.456Z - debug:  [01732] TFVC Repository created with repositoryRootFolder='c:\Users\jdawson\source\repos\vault-configuration'
+2019-07-25T09:12:06.457Z - debug:  [01732] TFVC Repository.CheckVersion
+2019-07-25T09:12:06.457Z - debug:  [01732] TFVC: tf add -noprompt -?
+2019-07-25T09:12:06.461Z - debug:  [01732] TFVC: spawned new process (duration: 3ms)
+2019-07-25T09:12:06.494Z - debug:  [01732] TFVC: add exit code: 0 (duration: 37ms)
+2019-07-25T09:12:06.494Z - debug:  [01732] TFVC Minimum required version: 14.102.0
+2019-07-25T09:12:06.495Z - debug:  [01732] TFVC (TF.exe, TF.cmd) version: 14.102.25619.0
+2019-07-25T09:12:06.495Z - debug:  [01732] TFVC Repository.FindWorkspace with localPath='c:\Users\jdawson\source\repos\vault-configuration'
+2019-07-25T09:12:06.495Z - debug:  [01732] TFVC: tf workfold -noprompt c:\Users\jdawson\source\repos\vault-configuration
+2019-07-25T09:12:06.498Z - debug:  [01732] TFVC: spawned new process (duration: 3ms)
+2019-07-25T09:12:06.858Z - debug:  [01732] TFVC: workfold exit code: 100 (duration: 363ms)
+2019-07-25T09:12:06.858Z - debug:  [01732] TFVC errors (via stderr): Unable to determine the workspace. You may be able to correct this by running 'tf workspaces /collection:TeamProjectCollectionUrl'.
+
+2019-07-25T09:12:06.859Z - error:  [01732] Execution of the TFVC command line failed unexpectedly.
+2019-07-25T09:12:21.804Z - debug:  [01732] Reinitializing due to onDidChangeConfiguration
+2019-07-25T09:12:21.804Z - debug:  [01732] Polling interval value (minutes): 5
+2019-07-25T09:12:21.804Z - debug:  [01732] Polling interval must be greater than 10 minutes.
+2019-07-25T09:12:21.806Z - info:   [01732] *** FOLDER: c:\Users\jdawson\source\repos\vault-configuration ***
+2019-07-25T09:12:21.806Z - info:   [01732] AzureReposVSCode/1.149.2 (VSCode 1.36.1; Windows_NT 10.0.17134; Node 10.11.0)
+2019-07-25T09:12:21.806Z - debug:  [01732] Looking for an External Context at c:\Users\jdawson\source\repos\vault-configuration
+2019-07-25T09:12:21.806Z - debug:  [01732] No External Context at c:\Users\jdawson\source\repos\vault-configuration
+2019-07-25T09:12:21.810Z - debug:  [01732] Looking for TFVC repository at c:\Users\jdawson\source\repos\vault-configuration
+2019-07-25T09:12:21.810Z - debug:  [01732] TFVC Creating Tfvc object with localPath='undefined'
+2019-07-25T09:12:21.811Z - debug:  [01732] Using TFS proxy: 
+2019-07-25T09:12:21.811Z - debug:  [01732] TFVC Retrieved from settings; localPath='C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\TF.exe'
+2019-07-25T09:12:21.811Z - debug:  [01732] TFVC Repository created with repositoryRootFolder='c:\Users\jdawson\source\repos\vault-configuration'
+2019-07-25T09:12:21.811Z - debug:  [01732] TFVC Repository.CheckVersion
+2019-07-25T09:12:21.812Z - debug:  [01732] TFVC: tf add -noprompt -?
+2019-07-25T09:12:21.815Z - debug:  [01732] TFVC: spawned new process (duration: 2ms)
+2019-07-25T09:12:21.847Z - debug:  [01732] TFVC: add exit code: 0 (duration: 35ms)
+2019-07-25T09:12:21.847Z - debug:  [01732] TFVC Minimum required version: 14.102.0
+2019-07-25T09:12:21.849Z - debug:  [01732] TFVC (TF.exe, TF.cmd) version: 14.102.25619.0
+2019-07-25T09:12:21.849Z - debug:  [01732] TFVC Repository.FindWorkspace with localPath='c:\Users\jdawson\source\repos\vault-configuration'
+2019-07-25T09:12:21.849Z - debug:  [01732] TFVC: tf workfold -noprompt c:\Users\jdawson\source\repos\vault-configuration
+2019-07-25T09:12:21.852Z - debug:  [01732] TFVC: spawned new process (duration: 3ms)
+2019-07-25T09:12:22.187Z - debug:  [01732] TFVC: workfold exit code: 100 (duration: 338ms)
+2019-07-25T09:12:22.188Z - debug:  [01732] TFVC errors (via stderr): Unable to determine the workspace. You may be able to correct this by running 'tf workspaces /collection:TeamProjectCollectionUrl'.
+
+2019-07-25T09:12:22.188Z - error:  [01732] Execution of the TFVC command line failed unexpectedly.

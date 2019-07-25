@@ -1,4 +1,4 @@
-namespace HashiCorp.Vault.DotNetCore.Configuration
+namespace Vault.Configuration
 {
     public class VaultConfigurationOptions
     {

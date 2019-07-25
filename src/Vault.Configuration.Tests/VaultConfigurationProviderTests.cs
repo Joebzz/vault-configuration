@@ -7,9 +7,9 @@ using Moq;
 using VaultSharp;
 using VaultSharp.V1.Commons;
 
-using HashiCorp.Vault.DotNetCore.Configuration.SecretManager;
+using Vault.Configuration.SecretManager;
 
-namespace HashiCorp.Vault.DotNetCore.Configuration.Tests
+namespace Vault.Configuration.Tests
 {
     [TestClass]
     public class VaultConfigurationProviderTests

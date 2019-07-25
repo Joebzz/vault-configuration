@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\HashiCorp.Vault.DotNetCore.Configuration.csproj" />
+    <ProjectReference Include="..\..\src\Vault.Configuration\Vault.Configuration.csproj" />
   </ItemGroup>
 
 </Project>
