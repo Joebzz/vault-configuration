@@ -1,0 +1,1 @@
+# hashicorp-vault-dotnet-core-configuration
