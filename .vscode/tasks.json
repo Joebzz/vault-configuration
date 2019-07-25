@@ -65,7 +65,7 @@
             "type": "process",
             "args": [
                 "test",
-                "${workspaceFolder}src/Vault.Configuration.Tests/Vault.Configuration.Tests.csproj"
+                "${workspaceFolder}/src/Vault.Configuration.Tests/Vault.Configuration.Tests.csproj"
             ],
             "problemMatcher": "$tsc"
         }

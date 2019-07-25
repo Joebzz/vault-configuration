@@ -1,1 +1,1 @@
-# hashicorp-vault-dotnet-core-configuration
+# DotNet Core Configuration Extension for Hashicorp Vault 
