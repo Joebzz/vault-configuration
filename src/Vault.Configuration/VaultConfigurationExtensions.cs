@@ -34,8 +34,8 @@ namespace Vault.Configuration
             if (string.IsNullOrEmpty(roleId)) { throw new ArgumentException("roleId must not be null or empty", nameof(roleId)); }
             if (string.IsNullOrEmpty(secretId)) { throw new ArgumentException("secretId must not be null or empty", nameof(secretId)); }
 
-            var authInfo = new AppRoleAuthMethodInfo(roleId, secretId);
-            return AddVault(configurationBuilder, vaultUri, authInfo, secretLocationPaths);
+            var authMethodInfo = new AppRoleAuthMethodInfo(roleId, secretId);
+            return AddVaultWithAuthMethodInfo(configurationBuilder, vaultUri, authMethodInfo, secretLocationPaths);
         }
 
         /// <summary>
@@ -47,13 +47,14 @@ namespace Vault.Configuration
         /// <param name="secretId">The secret_id to use for authentication.</param>
         /// <param name="secretLocationPaths">The paths for the secrets to load.</param>
         /// <returns>The <see cref="IConfigurationBuilder"/>.</returns>
-        public static IConfigurationBuilder AddVault(
+        public static IConfigurationBuilder AddVaultWithAuthMethodInfo(
             this IConfigurationBuilder configurationBuilder,
             string vaultUri,
             IAuthMethodInfo authMethodInfo,
             params string[] secretLocationPaths)
         {
-            if (string.IsNullOrWhiteSpace(vaultUri)) { throw new ArgumentException("VaultUri must be a valid URI", nameof(vaultUri)); }
+            if (string.IsNullOrWhiteSpace(vaultUri)) { throw new ArgumentException("vaultUri must be a valid URI", nameof(vaultUri)); }
+            if (!Uri.IsWellFormedUriString(vaultUri, UriKind.RelativeOrAbsolute)) { throw new UriFormatException("vaultUri must be a valid URI"); }
             
             var vaultClientSettings = new VaultClientSettings(vaultUri, authMethodInfo);
 
