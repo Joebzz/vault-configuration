@@ -21,6 +21,7 @@ namespace Vault.Configuration
         /// <param name="vaultUri">The Vault uri with port.</param>
         /// <param name="roleId">The AppRole role_id to use for authentication.</param>
         /// <param name="secretId">The secret_id to use for authentication.</param>
+        /// <param name="secretMountPoint">The main path for the secrets to load from.</param>
         /// <param name="secretLocationPaths">The paths for the secrets to load.</param>
         /// <returns>The <see cref="IConfigurationBuilder"/>.</returns>
         public static IConfigurationBuilder AddVaultWithAppRole(
@@ -28,14 +29,16 @@ namespace Vault.Configuration
             string vaultUri,
             string roleId,
             string secretId,
+            string secretMountPoint,
             params string[] secretLocationPaths)
         {
             if (string.IsNullOrWhiteSpace(vaultUri)) { throw new ArgumentException("vaultUri must be a valid URI", nameof(vaultUri)); }
             if (string.IsNullOrEmpty(roleId)) { throw new ArgumentException("roleId must not be null or empty", nameof(roleId)); }
             if (string.IsNullOrEmpty(secretId)) { throw new ArgumentException("secretId must not be null or empty", nameof(secretId)); }
+            if (string.IsNullOrEmpty(secretMountPoint)) { throw new ArgumentException("secretMountPoint must not be null or empty", nameof(secretId)); }
 
             var authMethodInfo = new AppRoleAuthMethodInfo(roleId, secretId);
-            return AddVaultWithAuthMethodInfo(configurationBuilder, vaultUri, authMethodInfo, secretLocationPaths);
+            return AddVaultWithAuthMethodInfo(configurationBuilder, vaultUri, authMethodInfo, secretMountPoint, secretLocationPaths);
         }
 
         /// <summary>
@@ -45,22 +48,25 @@ namespace Vault.Configuration
         /// <param name="vaultUri">The Vault uri with port.</param>
         /// <param name="roleId">The AppRole role_id to use for authentication.</param>
         /// <param name="secretId">The secret_id to use for authentication.</param>
+        /// <param name="secretMountPoint">The main path for the secrets to load from.</param>
         /// <param name="secretLocationPaths">The paths for the secrets to load.</param>
         /// <returns>The <see cref="IConfigurationBuilder"/>.</returns>
         public static IConfigurationBuilder AddVaultWithAuthMethodInfo(
             this IConfigurationBuilder configurationBuilder,
             string vaultUri,
             IAuthMethodInfo authMethodInfo,
+            string secretMountPoint,
             params string[] secretLocationPaths)
         {
             if (string.IsNullOrWhiteSpace(vaultUri)) { throw new ArgumentException("vaultUri must be a valid URI", nameof(vaultUri)); }
+            if (string.IsNullOrEmpty(secretMountPoint)) { throw new ArgumentException("secretMountPoint must not be null or empty", nameof(secretMountPoint)); }
             if (!Uri.IsWellFormedUriString(vaultUri, UriKind.RelativeOrAbsolute)) { throw new UriFormatException("vaultUri must be a valid URI"); }
-            
+
             var vaultClientSettings = new VaultClientSettings(vaultUri, authMethodInfo);
 
             var vaultClient = new VaultClient(vaultClientSettings);
 
-            return AddVault(configurationBuilder, vaultClient, new DefaultVaultSecretManager(), secretLocationPaths);
+            return AddVault(configurationBuilder, vaultClient, new DefaultVaultSecretManager(), secretMountPoint, secretLocationPaths);
         }
 
         /// <summary>
@@ -69,12 +75,14 @@ namespace Vault.Configuration
         /// <param name="configurationBuilder">The <see cref="IConfigurationBuilder"/> to add to.</param>
         /// <param name="client">The <see cref="IVaultClient"/> to use for retrieving values.</param>
         /// <param name="manager">The <see cref="IKeyVaultSecretManager"/> instance used to control secret loading.</param>
+        /// <param name="secretMountPoint">The main path for the secrets to load from.</param>
         /// <param name="secretLocationPaths">The paths for the secrets to load.</param>
         /// <returns>The <see cref="IConfigurationBuilder"/>.</returns>
         public static IConfigurationBuilder AddVault(
             this IConfigurationBuilder configurationBuilder,
             IVaultClient client,
             IVaultSecretManager manager,
+            string secretMountPoint,
             params string[] secretLocationPaths)
         {
             if (configurationBuilder == null)
@@ -85,6 +93,10 @@ namespace Vault.Configuration
             {
                 throw new ArgumentNullException(nameof(client));
             }
+            if (secretMountPoint == null)
+            {
+                throw new ArgumentNullException(nameof(secretMountPoint));
+            }
             if (secretLocationPaths == null)
             {
                 throw new ArgumentNullException(nameof(secretLocationPaths));
@@ -94,13 +106,15 @@ namespace Vault.Configuration
                 throw new ArgumentNullException(nameof(manager));
             }
 
-            configurationBuilder.Add(new VaultConfigurationSource()
+            var vaultConfigSource = new VaultConfigurationSource()
             {
                 Client = client,
+                SecretMountPoint = secretMountPoint,
                 SecretLocationPaths = secretLocationPaths,
                 Manager = manager,
-            });
+            };
 
+            configurationBuilder.Add(vaultConfigSource);
             return configurationBuilder;
         }
     }

@@ -6,6 +6,7 @@ namespace Vault.Configuration
         public string  Url { get; set; }
         public string RoleId { get; set; }
         public string SecretId { get; set; }
+        public string SecretMountPoint { get; set; }
         public string SecretPath { get; set; }
     }
 }

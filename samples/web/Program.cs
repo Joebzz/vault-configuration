@@ -29,6 +29,7 @@ namespace Vault.Configuration.Sample.WebApp
                     vaultConfiguration.Url,
                     vaultConfiguration.RoleId,
                     vaultConfiguration.SecretId,
+                    vaultConfiguration.SecretMountPoint,
                     vaultConfiguration.SecretPath
                 );
             }

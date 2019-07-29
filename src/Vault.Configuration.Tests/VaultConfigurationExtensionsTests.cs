@@ -15,9 +15,10 @@ namespace Vault.Configuration.Tests
     [TestClass]
     public class VaultConfigurationExtensionsTests
     {
-        private readonly string _vaultConfigurationUrl = "http://127.0.0.1:8200";
-        private readonly string _vaultConfigurationRoleId = "fake_vault_role_id";
-        private readonly string _vaultConfigurationSecretId = "fake_vault_secret_id";
+        private const string _vaultConfigurationUrl = "http://127.0.0.1:8200";
+        private const string _vaultConfigurationRoleId = "fake_vault_role_id";
+        private const string _vaultConfigurationSecretId = "fake_vault_secret_id";
+        private const string _vaultConfigurationMountPoint = "fake_vault_mount_point";
         private readonly string[] _vaultConfigurationSecretPath = new string [] { "fake_vault_secret_path1", "fake_vault_secret_path2" };
 
         [TestMethod]
@@ -32,6 +33,7 @@ namespace Vault.Configuration.Tests
                     "",
                     _vaultConfigurationRoleId,
                     _vaultConfigurationSecretId,
+                    _vaultConfigurationMountPoint,
                     _vaultConfigurationSecretPath
                 );
 
@@ -50,6 +52,7 @@ namespace Vault.Configuration.Tests
                     _vaultConfigurationUrl,
                     "",
                     _vaultConfigurationSecretId,
+                    _vaultConfigurationMountPoint,
                     _vaultConfigurationSecretPath
                 );
 
@@ -68,6 +71,7 @@ namespace Vault.Configuration.Tests
                     _vaultConfigurationUrl,
                     _vaultConfigurationRoleId,
                     "",
+                    _vaultConfigurationMountPoint,
                     _vaultConfigurationSecretPath
                 );
 
@@ -86,6 +90,26 @@ namespace Vault.Configuration.Tests
                     "test",
                     _vaultConfigurationRoleId,
                     _vaultConfigurationSecretId,
+                    _vaultConfigurationMountPoint,
+                    _vaultConfigurationSecretPath
+                );
+
+            // Assert - Expects Exception
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void AddVaultWithAppRole_ThrowsArgumentException_ForEmptyMountPoint()
+        {
+            // Arrange
+            var configuration = new ConfigurationBuilder();
+
+            // Act
+            configuration.AddVaultWithAppRole(
+                    _vaultConfigurationUrl,
+                    _vaultConfigurationRoleId,
+                    _vaultConfigurationSecretId,
+                    "",
                     _vaultConfigurationSecretPath
                 );
 
@@ -105,6 +129,7 @@ namespace Vault.Configuration.Tests
                     _vaultConfigurationUrl,
                     _vaultConfigurationRoleId,
                     _vaultConfigurationSecretId,
+                    _vaultConfigurationMountPoint,
                     _vaultConfigurationSecretPath
                 );
 
@@ -112,6 +137,25 @@ namespace Vault.Configuration.Tests
             Assert.IsNotNull(configuration);
             Assert.IsNotNull(configuration.Sources);
             Assert.AreEqual(1, configuration.Sources.Count);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void AddVaultWithAuthMethodInfo_ThrowsArgumentException_ForEmptyMountPoint()
+        {
+            // Arrange
+            var mockAuthMethodInfo = new Mock<IAuthMethodInfo>();
+            var configuration = new ConfigurationBuilder();
+
+            // Act
+            configuration.AddVaultWithAuthMethodInfo(
+                    "",
+                    mockAuthMethodInfo.Object,
+                    "",
+                    _vaultConfigurationSecretPath
+                );
+
+            // Assert - Expects Exception
         }
 
         [TestMethod]
@@ -126,6 +170,7 @@ namespace Vault.Configuration.Tests
             configuration.AddVaultWithAuthMethodInfo(
                     "",
                     mockAuthMethodInfo.Object,
+                    _vaultConfigurationMountPoint,
                     _vaultConfigurationSecretPath
                 );
 
@@ -144,6 +189,7 @@ namespace Vault.Configuration.Tests
             configuration.AddVaultWithAuthMethodInfo(
                     "test",
                     mockAuthMethodInfo.Object,
+                    _vaultConfigurationMountPoint,
                     _vaultConfigurationSecretPath
                 );
 
@@ -161,6 +207,7 @@ namespace Vault.Configuration.Tests
             configuration.AddVaultWithAuthMethodInfo(
                     _vaultConfigurationUrl,
                     authMethodInfo,
+                    _vaultConfigurationMountPoint,
                     _vaultConfigurationSecretPath
                 );
 
@@ -182,6 +229,7 @@ namespace Vault.Configuration.Tests
             configuration.AddVault(
                     mockVaultClient.Object,
                     null,
+                    _vaultConfigurationMountPoint,
                     _vaultConfigurationSecretPath
                 );
 
@@ -200,11 +248,53 @@ namespace Vault.Configuration.Tests
             configuration.AddVault(
                     null,
                     mockVaultSecretManager.Object,
+                    _vaultConfigurationMountPoint,
                     _vaultConfigurationSecretPath
                 );
 
             // Assert - Expects Exception
         }
+        
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void AddVault_ThrowsArgumentNullException_ForNullMountPoint()
+        {
+            // Arrange
+            var mockVaultSecretManager = new Mock<IVaultSecretManager>();
+            var mockVaultClient = new Mock<IVaultClient>();
+            var configuration = new ConfigurationBuilder();
+
+            // Act
+            configuration.AddVault(
+                    mockVaultClient.Object,
+                    mockVaultSecretManager.Object,
+                    null,
+                    _vaultConfigurationSecretPath
+                );
+
+            // Assert - Expects Exception
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void AddVault_ThrowsArgumentNullException_ForNullSecretPaths()
+        {
+            // Arrange
+            var mockVaultSecretManager = new Mock<IVaultSecretManager>();
+            var mockVaultClient = new Mock<IVaultClient>();
+            var configuration = new ConfigurationBuilder();
+
+            // Act
+            configuration.AddVault(
+                    mockVaultClient.Object,
+                    mockVaultSecretManager.Object,
+                    _vaultConfigurationMountPoint,
+                    null
+                );
+
+            // Assert - Expects Exception
+        }
+
 
         [TestMethod]
         public void AddVault_AddsSource()
@@ -218,6 +308,7 @@ namespace Vault.Configuration.Tests
             configuration.AddVault(
                     mockVaultClient.Object,
                     mockVaultSecretManager.Object,
+                    _vaultConfigurationMountPoint,
                     _vaultConfigurationSecretPath
                 );
 

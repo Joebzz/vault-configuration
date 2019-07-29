@@ -15,6 +15,7 @@ namespace Vault.Configuration
     {
         private readonly IVaultClient _client;
         private IEnumerable<string> _secretPaths;
+        private string _secretMount;
         private readonly IVaultSecretManager _manager;
 
         /// <summary>
@@ -23,11 +24,16 @@ namespace Vault.Configuration
         /// <param name="client">The <see cref="IVaultClient"/> to use for retrieving values.</param>
         /// <param name="secretPath">The secret path to read</param>
         /// <param name="manager"></param>
-        public VaultConfigurationProvider(IVaultClient client, IVaultSecretManager manager, IEnumerable<string> secretPaths)
+        public VaultConfigurationProvider(
+            IVaultClient client,
+            IVaultSecretManager manager,
+            string secretMount,
+            IEnumerable<string> secretPaths)
         {
             _client = client ?? throw new ArgumentNullException(nameof(client));
             _secretPaths = secretPaths ?? throw new ArgumentNullException(nameof(secretPaths));
             _manager = manager ?? throw new ArgumentNullException(nameof(manager));
+            _secretMount =  secretMount ?? throw new ArgumentNullException(nameof(secretMount));
         }
 
         public override void Load() => LoadAsync().ConfigureAwait(false).GetAwaiter().GetResult();
@@ -39,7 +45,7 @@ namespace Vault.Configuration
             {
                 try
                 {
-                    var kv2Secret = await _client.V1.Secrets.KeyValue.V2.ReadSecretAsync(secretPath);
+                    var kv2Secret = await _client.V1.Secrets.KeyValue.V2.ReadSecretAsync(secretPath, mountPoint: _secretMount);
                     var secretData = kv2Secret.Data;
                     Dictionary<string, object> secretDictionary = secretData.Data;
 
@@ -67,7 +73,7 @@ namespace Vault.Configuration
                 {
                     continue;
                 }
-                
+
                 var key = _manager.GetKey(secretData, kvp.Key);
                 data.Add(key, kvp.Value?.ToString());
             }

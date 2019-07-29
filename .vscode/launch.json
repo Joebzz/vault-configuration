@@ -10,12 +10,15 @@
             "request": "launch",
             "preLaunchTask": "build:console",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/samples/console/C.Sample.ConsoleApp/bin/Debug/netcoreapp2.2/Vault.Configuration.Sample.ConsoleApp.dll",
+            "program": "${workspaceFolder}/samples/console/bin/Debug/netcoreapp2.2/Vault.Configuration.Sample.ConsoleApp.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/Vault.Configuration.Sample.ConsoleApp",
+            "cwd": "${workspaceFolder}/samples/console",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
             "console": "internalConsole",
-            "stopAtEntry": false
+            "stopAtEntry": false,
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            }
         },
         {
             "name": ".NET Core Launch (web)",
@@ -23,9 +26,9 @@
             "request": "launch",
             "preLaunchTask": "build:web",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/samples/web/Vault.Configuration.Sample.WebApp/bin/Debug/netcoreapp2.2/Vault.Configuration.Sample.WebApp.dll",
+            "program": "${workspaceFolder}/samples/web/bin/Debug/netcoreapp2.2/Vault.Configuration.Sample.WebApp.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/Vault.Configuration.Sample.WebApp",
+            "cwd": "${workspaceFolder}/samples/web",
             "stopAtEntry": false,
             "launchBrowser": {
                 "enabled": true
@@ -34,7 +37,7 @@
                 "ASPNETCORE_ENVIRONMENT": "Development"
             },
             "sourceFileMap": {
-                "/Views": "${workspaceFolder}/Vault.Configuration.Sample.WebApp/Views"
+                "/Views": "${workspaceFolder}/samples/web/Views"
             }
         },
         {

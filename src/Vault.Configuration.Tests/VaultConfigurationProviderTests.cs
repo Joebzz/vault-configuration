@@ -14,6 +14,8 @@ namespace Vault.Configuration.Tests
     [TestClass]
     public class VaultConfigurationProviderTests
     {
+
+        private const string _secretMountPoint = "fake_vault_mount_point";
         private const string _secretPath = "/secrets/Development/testapp";
 
         [TestMethod]
@@ -37,11 +39,11 @@ namespace Vault.Configuration.Tests
                 }
             };
 
-            mockClient.Setup(c => c.V1.Secrets.KeyValue.V2.ReadSecretAsync(_secretPath, null, "kv", null))
+            mockClient.Setup(c => c.V1.Secrets.KeyValue.V2.ReadSecretAsync(_secretPath, null, _secretMountPoint, null))
                 .ReturnsAsync(fakeReturnSecretData);
 
             // Act
-            var provider = new VaultConfigurationProvider(mockClient.Object, new DefaultVaultSecretManager(), new[] { _secretPath });
+            var provider = new VaultConfigurationProvider(mockClient.Object, new DefaultVaultSecretManager(), _secretMountPoint, new[] { _secretPath });
             provider.Load();
 
             // Assert
@@ -77,11 +79,11 @@ namespace Vault.Configuration.Tests
                 }
             };
 
-            mockClient.Setup(c => c.V1.Secrets.KeyValue.V2.ReadSecretAsync(_secretPath, null, "kv", null))
+            mockClient.Setup(c => c.V1.Secrets.KeyValue.V2.ReadSecretAsync(_secretPath, null, _secretMountPoint, null))
                 .ReturnsAsync(fakeReturnSecretData);
 
             // Act
-            var provider = new VaultConfigurationProvider(mockClient.Object, new DefaultVaultSecretManager(), new[] { _secretPath });
+            var provider = new VaultConfigurationProvider(mockClient.Object, new DefaultVaultSecretManager(), _secretMountPoint, new[] { _secretPath });
             provider.Load();
 
             // Assert
@@ -104,7 +106,7 @@ namespace Vault.Configuration.Tests
             var secret1Id = "Section:Secret1";
             var secret1ValueIn = "Value1";
 
-            mockClient.Setup(c => c.V1.Secrets.KeyValue.V2.ReadSecretAsync(_secretPath, null, "kv", null))
+            mockClient.Setup(c => c.V1.Secrets.KeyValue.V2.ReadSecretAsync(_secretPath, null, _secretMountPoint, null))
                 .Returns((string path, int version, string mountPoint, string wrapTimeToLive) =>
                 {
                     return Task.FromResult(
@@ -121,7 +123,7 @@ namespace Vault.Configuration.Tests
                 });
 
             // Act
-            var provider = new VaultConfigurationProvider(mockClient.Object, new DefaultVaultSecretManager(), new[] { _secretPath });
+            var provider = new VaultConfigurationProvider(mockClient.Object, new DefaultVaultSecretManager(), _secretMountPoint, new[] { _secretPath });
             provider.Load();
 
             // Assert

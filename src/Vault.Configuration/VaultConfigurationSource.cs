@@ -18,9 +18,15 @@ namespace Vault.Configuration
         public IVaultClient Client { get; set; }
 
         /// <summary>
-        /// Gets or sets the secrets path (including storage location) for all of the secrets to load
+        /// Gets or sets the secrets mountpoint (storage location) for all of the secrets to load
+        /// </summary>
+        public string SecretMountPoint { get; set; }
+
+        /// <summary>
+        /// Gets or sets the secrets path (not including storage location) for all of the secrets to load
         /// </summary>
         public IEnumerable<string> SecretLocationPaths { get; set; }
+
 
         /// <summary>
         /// Gets or sets the <see cref="IVaultSecretManager"/> instance used to control secret loading.
@@ -29,7 +35,7 @@ namespace Vault.Configuration
         
         public IConfigurationProvider Build(IConfigurationBuilder builder)
         {
-            return new VaultConfigurationProvider(Client, Manager, SecretLocationPaths);
+            return new VaultConfigurationProvider(Client, Manager, SecretMountPoint, SecretLocationPaths);
         }
     }
 }
