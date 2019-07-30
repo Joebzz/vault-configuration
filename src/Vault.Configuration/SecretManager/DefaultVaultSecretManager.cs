@@ -9,6 +9,6 @@ namespace Vault.Configuration.SecretManager
     {
         public string GetKey(SecretData secretData, string secretKey) => secretKey;
 
-        public virtual bool Load(SecretData secretData, string key) => true;
+        public bool Load(SecretData secretData, string key) => true;
     }
 }
