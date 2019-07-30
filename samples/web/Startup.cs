@@ -31,10 +31,12 @@ namespace Vault.Configuration.Sample.WebApp
 
             app.Run(async (context) =>
             {
+                // Demonstrate how the values are retrieved from the config 
                 var testValue1 = _config["my-value"];
                 var testValue2 = _config["my-value-2"];
                 var testValue3 = _config["my-value-3"];
-                await context.Response.WriteAsync($"Hello World! Test Value from Vault 1: {testValue1}; Test Value from Vault 2: {testValue2}; Test Value from Vault 3: {testValue3}; ");
+                
+                await context.Response.WriteAsync($"Hello World! Test Value from Vault 1: {testValue1}; Test Value from Vault 2: {testValue2}; Test Value from Vault 3: {testValue3};");
             });
         }
     }

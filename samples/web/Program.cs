@@ -22,17 +22,8 @@ namespace Vault.Configuration.Sample.WebApp
             
             // Get the Vault Section from the configuration
             var vaultSection = configuration.GetSection("Vault");
-            var vaultConfiguration = vaultSection.Get<VaultConfigurationOptions>(); // Convert it to a strongly typed object
-            if (vaultConfiguration != null && vaultConfiguration.Enabled)
-            {
-                builder.AddVaultWithAppRole(
-                    vaultConfiguration.Url,
-                    vaultConfiguration.RoleId,
-                    vaultConfiguration.SecretId,
-                    vaultConfiguration.SecretMountPoint,
-                    vaultConfiguration.SecretPath
-                );
-            }
+            var vaultConfigurationOptions = vaultSection.Get<VaultConfigurationOptions>(); // Convert it to a strongly typed object
+            builder.AddVaultWithConfigurationOptions(vaultConfigurationOptions);
         }
     }
 }
