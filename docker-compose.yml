@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  vault:
+    build:
+      context: ./docker/vault
+    ports:
+      - 8200:8200
+    volumes:
+      - ./docker/vault/config:/vault/config
+      - ./docker/vault/policies:/vault/policies
+      - ./docker/vault/logs:/vault/logs
+    cap_add:
+      - IPC_LOCK
+    environment:
+      - VAULT_ADDR=http://127.0.0.1:8200
+    command: "server"
+  

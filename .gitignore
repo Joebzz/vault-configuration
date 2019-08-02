@@ -27,3 +27,7 @@ msbuild.wrn
 
 # Visual Studio 2015
 .vs/
+
+# Vault Docker files
+docker/vault/data
+docker/vault/logs

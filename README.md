@@ -1,5 +1,6 @@
 # DotNet Core Configuration Extension for Hashicorp Vault 
 
+
 ## Configuring Vault Server to run the sample
 
 ### App Role Auth

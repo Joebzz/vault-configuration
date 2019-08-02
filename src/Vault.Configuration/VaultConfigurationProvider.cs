@@ -54,6 +54,7 @@ namespace Vault.Configuration
                 catch (VaultApiException vaultApiException)
                 {
                     Console.WriteLine("Vault API Error:" + vaultApiException.ToString());
+                    throw vaultApiException;
                 }
                 catch (Exception ex)
                 {
